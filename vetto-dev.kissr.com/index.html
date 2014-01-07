@@ -20,18 +20,18 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
 
-  <body>
+  <body class="snapjs-left">
     
   <!-- Sidebar Menu Navigation-->
-  <nav class='main-nav' id='main-nav'>
-    <ul class="navigation">
+  <nav class="snap-drawers">
+    <ul class="navigation snap-drawer snap-drawer-left">
 
       <!-- Menu Items -->
 
       <!-- Home -->
       <li class="home-menu" class="firstThree">
-        <a href="#main-pane" class="logo-side">
-          <img src="img/logo-light.png" class="logo-left close-menu">
+        <a href="#main-pane" class="logo-side logo">
+          <img src="img/logo-light.png" class="logo-left">
           <h4 class="big-title big-title-1">home</h4>
         </a>
       </li>
@@ -89,17 +89,23 @@
         </a>
       </li>
 
+      <!-- Empty line 5 for padding -->
+      <li>
+        <a class="line-5 list-line"></a>
+      </li>
+
     </ul>
   </nav>  
   <!-- End of Sidebar Menu Navigation -->
 
   <!-- Main Content -->
-  <section class="main-pane page-wrap">
+  <section id="content" class="main-pane snap-content">
       <!-- Vetto Header -->
-      <div class="nav-bar main-header">
-        <a href="#main-nav" class="logo open-menu"><img src="img/logo.png"></a>
+      <div class="nav-bar" id="toolbar">
+        <a href="#" id="open-left" class="logo"><img src="img/logo.png"></a>
         <h1>vetto</h1>
       </div>
+      <div id="no-drag" data-snap-ignore="true"></div>
       
       <!-- Referal box in red -->
       <h5 class="suggestion investor"><span class="name">sam teller</span> is investing in</h5>
@@ -178,6 +184,29 @@
 
   <!-- Load Main JS file for application -->
   <script src="js/main.js"></script>
+
+  <!-- Load Snap JS -->
+  <script src="js/demo.js"></script>
+  <script src="js/snap.js"></script>
+  <script type="text/javascript">
+    var snapper = new Snap({
+        element: document.getElementById('content'),
+        // dragger: '.logo',
+        disable: 'right',
+        addBodyClasses: true,
+        hyperextensible: true,
+        resistance: 0.5,
+        flickThreshold: 50,
+        transitionSpeed: 0.3,
+        easing: 'ease',
+        maxPosition: 766,
+        minPosition: -766,
+        tapToClose: true,
+        touchToDrag: false,
+        slideIntent: 40,
+        minDragDistance: 5
+    });
+  </script>
 
 </html>
 

@@ -41,6 +41,12 @@ $(document).ready(function(){
 
 	});
 
+    $('.snapjs-left').resize(function() {
+        var bodyheight = $(body).height();
+         $(".snapjs-left").height(bodyheight);
+    }); 
+   
+
 })
 
 
